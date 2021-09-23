@@ -64,7 +64,7 @@ function addRecipeDetail(meal) {
   let content = `
     <h2 class = "recipe-title">${meal.strMeal}</h2>
     <div class = "recipe-instructions">
-        <h3>Instructions:</h3>
+        
         <p>${meal.strInstructions}</p>
     </div>
     <div class = "recipe-meal-img">

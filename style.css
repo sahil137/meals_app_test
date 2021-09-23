@@ -99,15 +99,48 @@ main {
   transform: translate(-50%, -50%);
   color: #fff;
   border-radius: 10px;
-  width: 90%;
-  height: 90%;
+  width: 95%;
+  height: 95%;
   overflow-y: scroll;
   display: none;
   padding: 2rem 0;
-  border: 1px solid black;
+  background-color: rgb(33, 37, 41);
+  padding: 20px;
 }
 
 .show-recipe {
   /* important used here to display the details page */
   display: block !important;
+}
+
+.back-button {
+  margin-bottom: 20px;
+}
+
+.recipe-title {
+  letter-spacing: 1px;
+  padding-bottom: 1rem;
+}
+
+.recipe-meal-img img {
+  width: 500px;
+  height: 500px;
+  margin: 0 auto;
+  display: block;
+  object-fit: contain;
+}
+
+.recipe-link {
+  margin: 1.4rem 0;
+  text-align: center;
+}
+.recipe-link a {
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 700;
+  transition: all 0.2s linear;
+  text-decoration: none;
+}
+.recipe-link a:hover {
+  color: aquamarine;
 }
