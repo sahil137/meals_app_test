@@ -36,7 +36,8 @@ main {
   margin-bottom: 3px;
 }
 
-#meal {
+#meal,
+#favourite-meals-container {
   width: 90%;
   height: 600px;
   overflow-y: scroll;
@@ -86,7 +87,8 @@ main {
   margin-top: 20px;
 }
 
-.favourite-button {
+.favourite-button,
+.unfavourite-button {
   margin: 5%;
 }
 

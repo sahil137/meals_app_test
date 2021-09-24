@@ -29,38 +29,16 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./style.css" />
-    <title>Meals App</title>
+    <link rel="stylesheet" href="../style.css" />
+    <title>Favourite Meals</title>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg bg-dark">
-      <div class="container-fluid">
-        <h2 id="title" class="navbar-brand">
-          <i class="fas fa-pizza-slice"></i> &nbsp;Meal App
-        </h2>
-        <a href="./favourite/favourite.html" id="favorite-meals-link"
-          >Favourite Meals</a
-        >
-      </div>
+      <h2 id="title" class="navbar-brand">Favourite Meals</h2>
     </nav>
     <main class="d-flex flex-column justify-content-around align-items-center">
-      <div class="search-container">
-        <input
-          type="text"
-          id="search-meal-input"
-          placeholder="Search for a meal"
-        />
-        <button
-          type="submit"
-          id="search-button"
-          class="btn btn-sm btn-outline-dark"
-        >
-          <i class="fas fa-search"></i>
-          Search
-        </button>
-      </div>
       <div
-        id="meal"
+        id="favourite-meals-container"
         class="
           d-flex
           flex-wrap flex-row
@@ -75,30 +53,9 @@
             </div>
             <div class = "meal-name">
               <h3>Meal Name</h3>
-              <a href = "#" class = "recipe-button">Get Recipe</a>
             </div>
-            <button type="submit" class="btn btn-sm btn-outline-primary favourite-button"> Add To Favourites </button>
+            <button type="submit" class="btn btn-sm btn-outline-primary unfavourite-button"> Add To Favourites </button>
           </div> -->
-      </div>
-      <!-- Meal Details Page -->
-      <div id="meal-details">
-        <!-- Go Back Button -->
-        <button class="btn btn-sm btn-outline-danger back-button">
-          <i class="fas fa-arrow-circle-left"></i> &nbsp; Go Back
-        </button>
-        <div id="meal-details-container">
-          <!-- Structure of meal Details -->
-          <!-- <h2 class = "recipe-title">Title of Meal</h2>
-                <div class = "recipe-instructions">
-                    <p>Intructions</p>
-                </div>
-                <div class = "recipe-meal-img">
-                    <img src = "" alt = "">
-                </div>
-                <div class = "recipe-link">
-                    <a href = "" target = "_blank">Watch Video</a>
-                </div> -->
-        </div>
       </div>
     </main>
     <!-- Bootstrap scripts -->
@@ -107,6 +64,6 @@
       integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
       crossorigin="anonymous"
     ></script>
-    <script src="./script.js"></script>
+    <script src="./favourite_script.js"></script>
   </body>
 </html>

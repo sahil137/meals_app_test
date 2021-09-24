@@ -4,7 +4,6 @@ const searchButton = document.getElementById("search-button");
 const mealSearchResultsContainer = document.getElementById("meal");
 const mealDetailsContainer = document.getElementById("meal-details-container");
 const backButton = document.getElementsByClassName("back-button")[0];
-// const favouriteButton = document.getElementsByClassName("favourite-button");
 
 // Event Listeners
 searchButton.addEventListener("click", searchForMeal);
@@ -13,6 +12,7 @@ backButton.addEventListener("click", closeRecipeDetails);
 mealSearchResultsContainer.addEventListener("click", getRecipeDetails);
 mealSearchResultsContainer.addEventListener("click", addToFavourites);
 
+// This didnot work for some reason
 // for (i = 0; i < favouriteButton.length; i++) {
 //   favouriteButton[i].addEventListener("click", addToFavourites);
 // }
@@ -51,8 +51,6 @@ function searchForMeal() {
 
 // To display recipe details
 function getRecipeDetails(event) {
-  // event.preventDefault();
-
   if (event.target.classList.contains("recipe-button")) {
     let mealItem = event.target.parentElement.parentElement;
     const mealId = mealItem.id;
@@ -62,6 +60,7 @@ function getRecipeDetails(event) {
   }
 }
 
+// function  to show recipe details
 function addRecipeDetail(meal) {
   let content = `
     <h2 class = "recipe-title">${meal.strMeal}</h2>
@@ -105,7 +104,7 @@ function addToFavourites(event) {
   if (favouriteMeals.indexOf(mealId) !== -1) {
     return;
   }
+  // add id to array and save it back to local storage
   favouriteMeals.push(mealId);
-  console.log(favouriteMeals);
   localStorage.setItem("favourites", JSON.stringify(favouriteMeals));
 }
