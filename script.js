@@ -4,12 +4,18 @@ const searchButton = document.getElementById("search-button");
 const mealSearchResultsContainer = document.getElementById("meal");
 const mealDetailsContainer = document.getElementById("meal-details-container");
 const backButton = document.getElementsByClassName("back-button")[0];
+// const favouriteButton = document.getElementsByClassName("favourite-button");
 
 // Event Listeners
 searchButton.addEventListener("click", searchForMeal);
 searchTextElement.addEventListener("input", searchForMeal);
-mealSearchResultsContainer.addEventListener("click", getRecipeDetails);
 backButton.addEventListener("click", closeRecipeDetails);
+mealSearchResultsContainer.addEventListener("click", getRecipeDetails);
+mealSearchResultsContainer.addEventListener("click", addToFavourites);
+
+// for (i = 0; i < favouriteButton.length; i++) {
+//   favouriteButton[i].addEventListener("click", addToFavourites);
+// }
 
 // Functions
 function searchForMeal() {
@@ -33,7 +39,7 @@ function searchForMeal() {
                       <h3>${meal.strMeal}</h3>
                       <a href = "#" class = "recipe-button">Get the Recipe</a>
                   </div>
-                  <button type="submit" class="btn btn-sm btn-outline-primary" id="favourite-button"> Add To Favourites </button>
+                  <button type="submit" class="btn btn-sm btn-outline-primary favourite-button"> Add To Favourites </button>
               </div>
           `;
         });
@@ -49,14 +55,10 @@ function getRecipeDetails(event) {
 
   if (event.target.classList.contains("recipe-button")) {
     let mealItem = event.target.parentElement.parentElement;
-    console.log(mealItem);
     const mealId = mealItem.id;
-    let content = ``;
     fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`)
       .then((response) => response.json())
       .then((data) => addRecipeDetail(data.meals[0]));
-
-    // console.log(mealDetailsContainer.parentElement);
   }
 }
 
@@ -80,5 +82,30 @@ function addRecipeDetail(meal) {
 // To close recipe details
 function closeRecipeDetails() {
   mealDetailsContainer.parentElement.classList.remove("show-recipe");
-  // console.log(mealDetailsContainer.parentElement);
+}
+
+// add meals to favourites
+function addToFavourites(event) {
+  // check if user has clicked on favourite button
+
+  // if user has not clicked on favourite button just return
+  if (!event.target.classList.contains("favourite-button")) {
+    return;
+  }
+
+  let mealId = event.target.parentElement.id;
+  let favouriteMeals;
+
+  if (localStorage.getItem("favourites") === null) {
+    favouriteMeals = [];
+  } else {
+    favouriteMeals = JSON.parse(localStorage.getItem("favourites"));
+  }
+  // check if the mealId is already present
+  if (favouriteMeals.indexOf(mealId) !== -1) {
+    return;
+  }
+  favouriteMeals.push(mealId);
+  console.log(favouriteMeals);
+  localStorage.setItem("favourites", JSON.stringify(favouriteMeals));
 }
